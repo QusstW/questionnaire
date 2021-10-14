@@ -11,7 +11,7 @@ const MainLayout = ({ children }) => {
         "& > :not(style)": {
           m: 1,
           width: "70vw",
-          height: "90vh",
+          height: "85vh",
           margin: "3% auto",
         },
       }}

@@ -1,15 +1,28 @@
 import React from "react";
-import MainLayout from "../components/mainLayout/MainLayout";
 import { CalcProvider } from "../provider";
-import Test from "../components/test/Test";
+import { MainLayout, NavMenu } from "../components";
+import { StartPage, Questionnaire } from "../pages";
+import { DESIGNER, FRONTEND } from "../constants";
+import { BrowserRouter, Route } from "react-router-dom";
 
 const App = () => {
   return (
-    <CalcProvider>
-      <MainLayout>
-        <Test />
-      </MainLayout>
-    </CalcProvider>
+    <BrowserRouter>
+      <CalcProvider>
+        <NavMenu />
+        <MainLayout>
+          <Route path="/start" render={() => <StartPage />} />
+          <Route
+            path="/designer"
+            render={() => <Questionnaire data={DESIGNER} />}
+          />
+          <Route
+            path="/frontend"
+            render={() => <Questionnaire data={FRONTEND} />}
+          />
+        </MainLayout>
+      </CalcProvider>
+    </BrowserRouter>
   );
 };
 

@@ -1,0 +1,11 @@
+.buttonList {
+  display: flex;
+  flex-direction: column;
+  margin: 4% auto;
+  max-width: 65vw;
+}
+.question {
+  font-size: calc(1rem + 1.23vw);
+  text-align: center;
+  margin-top: 2%;
+}
