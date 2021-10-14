@@ -3,6 +3,9 @@ import Button from "@mui/material/Button";
 import s from "../../styles/question.module.css";
 import { NavLink } from "react-router-dom";
 import useCalc from "../../hooks/useCalc";
+import designer from "../../assets/images/designer.png";
+import frontend from "../../assets/images/frontend.png";
+import tester from "../../assets/images/tester.png";
 
 const StartPage = () => {
   const [start, setStart] = React.useState(true);
@@ -48,6 +51,17 @@ const StartPage = () => {
             </Button>
           ))}
         </div>
+        <div style={{ display: "flex" }}>
+          <div className={s.image}>
+            <img alt="" src={designer} className={s.image} />
+          </div>
+          <div className={s.image}>
+            <img alt="" src={tester} className={s.image} />
+          </div>
+          <div className={s.image}>
+            <img alt="" src={frontend} className={s.image} />
+          </div>
+        </div>
       </div>
     );
   return (
@@ -60,11 +74,22 @@ const StartPage = () => {
               key={e + index}
               style={{ marginTop: "2%" }}
               variant="outlined"
-              onClick={() => {}}
+              onClick={() => calculate(e.value)}
             >
               {e.answer}
             </Button>
           ))}
+        </div>
+        <div style={{ display: "flex" }}>
+          <div className={s.image}>
+            <img alt="" src={designer} className={s.image} />
+          </div>
+          <div className={s.image}>
+            <img alt="" src={tester} className={s.image} />
+          </div>
+          <div className={s.image}>
+            <img alt="" src={frontend} className={s.image} />
+          </div>
         </div>
       </NavLink>
     </div>

@@ -6,6 +6,7 @@ export default function CalcProvider(props) {
   //текущая вероятность
   const [progress, setProgress] = useState(0);
 
+  //функция вычисления текущей вероятности
   const calculate = (value, isLast) => {
     if (isLast === true) {
       let extra = Math.round(progress * value);
@@ -15,15 +16,20 @@ export default function CalcProvider(props) {
       } else {
         setProgress(extra);
       }
-    }
-    let extra = value + progress;
-    if (extra > 100) {
-      setProgress(100);
-    } else if (extra < 0) {
-      setProgress(0);
     } else {
-      setProgress(extra);
+      let extra = value + progress;
+      if (extra > 100) {
+        setProgress(100);
+      } else if (extra < 0) {
+        setProgress(0);
+      } else {
+        setProgress(extra);
+      }
     }
+  };
+
+  const updateState = () => {
+    setProgress(0);
   };
 
   return (
@@ -33,6 +39,8 @@ export default function CalcProvider(props) {
         setProgress,
         //вычисление прогресса
         calculate,
+        //
+        updateState,
       }}
       {...props}
     />

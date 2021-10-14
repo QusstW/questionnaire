@@ -9,10 +9,23 @@ export default function NavMenu() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Typography variant="h6" color="inherit" component="div">
-          Тест потенциального сотрудника
-        </Typography>
-        <div>{progress}</div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+          }}
+        >
+          <Typography
+            variant="h6"
+            color="inherit"
+            component="div"
+            style={{ fontSize: "25px" }}
+          >
+            Тест потенциального сотрудника
+          </Typography>
+          <div style={{ fontSize: "25px" }}>Прогресс {progress}</div>
+        </div>
       </AppBar>
     </Box>
   );

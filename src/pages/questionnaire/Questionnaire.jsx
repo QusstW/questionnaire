@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import FrontendInput from "./extra/FrontendInput";
+import EndPage from "./extra/EndPage";
 import Button from "@mui/material/Button";
 import s from "../../styles/question.module.css";
 import useCalc from "../../hooks/useCalc";
+import designer from "../../assets/images/designer.png";
+import frontend from "../../assets/images/frontend.png";
 
 const Questionnaire = ({ data }) => {
   const { calculate, progress } = useCalc();
   const [currentEl, setCurrentEl] = useState(0);
 
-  if (currentEl === data.length) return <div>Конец</div>;
+  if (currentEl === data.length) return <EndPage />;
 
   //текущий объект массива(вопрос)
   let element = data[currentEl];
@@ -22,9 +25,9 @@ const Questionnaire = ({ data }) => {
   };
 
   if (currentEl === 4 && progress <= 50 && type === "designer") {
-    return <div> end</div>;
+    return <EndPage />;
   } else if (currentEl === 4 && progress <= 40 && type === "frontend") {
-    return <div>end</div>;
+    return <EndPage />;
   } else if (currentEl === 2 && type === "frontend") {
     return <FrontendInput element={element} getNextEl={getNextEl} />;
   }
@@ -42,6 +45,31 @@ const Questionnaire = ({ data }) => {
             {e.answer}
           </Button>
         ))}
+        {type === "frontend" ? (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "3%",
+            }}
+          >
+            <div className={s.image} style={{ width: "20vw" }}>
+              <img alt="" src={frontend} className={s.image} />
+            </div>
+          </div>
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "3%",
+            }}
+          >
+            <div className={s.image} style={{ width: "20vw" }}>
+              <img alt="" src={designer} className={s.image} />
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
