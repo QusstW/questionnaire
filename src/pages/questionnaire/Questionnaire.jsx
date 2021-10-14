@@ -26,7 +26,7 @@ const Questionnaire = ({ data }) => {
   } else if (currentEl === 4 && progress <= 40 && type === "frontend") {
     return <div>end</div>;
   } else if (currentEl === 2 && type === "frontend") {
-    return <FrontendInput />;
+    return <FrontendInput element={element} getNextEl={getNextEl} />;
   }
 
   return (
